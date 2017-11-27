@@ -1,6 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://admin:admin@ds121456.mlab.com:21456/fsinstadb";
 var db;
+
 MongoClient.connect(url, function (err, database) {
     if (err) throw err;
     db = database;

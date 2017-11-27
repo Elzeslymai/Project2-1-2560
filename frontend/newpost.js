@@ -12,6 +12,7 @@ function createNewPost(){
     var title = $('#title').val();
     var comment = $('#comment').val();
     var photo = $('#photo').val();
+    moment.locale('th');
     var newpost = {
         // POINT 8. Use jQuery to get form data and create an object for new post
         username : uname,
