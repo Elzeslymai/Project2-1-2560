@@ -8,25 +8,29 @@ $('#photo').change(function(){
 
 function createNewPost(){
 
+    var uname = $('#username').val();
+    var title = $('#title').val();
+    var comment = $('#comment').val();
+    var photo = $('#photo').val();
     var newpost = {
-        username:$('#username').val(),
-        title:$('#title').val(),
-        comment:$('#comment').val(),
-        image_url:$('#photo').val(),
-        create_date: moment()
+        // POINT 8. Use jQuery to get form data and create an object for new post
+        username : uname,
+        title : title,
+        comment : comment,
+        image_url : photo,
+        create_date: moment().format('LLL')
     };
 
-    console.log(newpost);
-
     var url = 'http://localhost:8080/api/posts';
+    // POINT 9. Insert data to REST API with axios
+
     axios.post(url, newpost)
-      .then(function (response) {
-        console.log(response);
-        window.location.href = 'index.html';
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    .then(function (response){
+        windows.location.href = "http://localhost:8080/";
+    })
+    .catch(function (error){
+        console.log(error)
+    });
 }
 
 function previewPhoto(src){

@@ -5,6 +5,6 @@
             <p class="card-text"> {{comment}}</p>
         </div>
         <div class="card-footer">
-      <small class="text-muted">{{time_display}}</small>
+      <small class="text-muted">{{create_date}}</small>
     </div>
 </div>

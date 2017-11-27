@@ -1,29 +1,27 @@
-// call the packages we need
-var express = require('express');        // call express
+var express = require('express');        
 var app = express();   
-var cors = require('cors');              // define our app using express
+var cors = require('cors');              
 var bodyParser = require('body-parser');
 var posts = require('./post.js');
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
+// POINT 1. Enable CORS
 app.use(cors());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('frontend'));
+
+// POINT 2. Set a static file for “frontend” folder
+app.use(express.static(__dirname + "/frontend"));
 
 var port = process.env.PORT || 8080;        // set our port
 
-// ROUTES FOR OUR API
-// =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
+
+// POINT 3. Set API routing to functions in post.js
 router.get('/posts', posts.getAllPosts);
-router.get('/posts/:userid', posts.getPostsByUser);
-router.post('/posts', posts.InsertNewPosts);
-
-
-// more routes for our API will happen here
+router.get('/posts/mypost', posts.getPostsByUser);
+router.post('/posts/newpost', posts.insertNewPosts);
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
