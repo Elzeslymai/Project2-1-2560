@@ -21,12 +21,12 @@ function createNewPost(){
         create_date: moment().format('LLL')
     };
 
-    var url = 'http://localhost:8080/api/posts';
+    var url = 'http://localhost:8080/api/posts/newpost';
     // POINT 9. Insert data to REST API with axios
 
     axios.post(url, newpost)
     .then(function (response){
-        windows.location.href = "http://localhost:8080/";
+        window.location.href = "http://localhost:8080/";
     })
     .catch(function (error){
         console.log(error)

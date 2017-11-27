@@ -67,6 +67,12 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
     <script src="newpost.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            moment.locale('th');
+            $("#show_thaidate").html(moment().format('LLLL'));
+        });
+        </script>  
 </body>
 
 </html>
